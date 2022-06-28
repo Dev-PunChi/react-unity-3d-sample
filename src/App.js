@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Unity, useUnityContext } from "react-unity-webgl";
+import Button from "@mui/material/Button";
 
 function App() {
+  const { unityProvider, sendMessage } = useUnityContext({
+    loaderUrl: "Build/Build_WebGL.loader.js",
+    dataUrl: "Build/Build_WebGL.data",
+    frameworkUrl: "Build/Build_WebGL.framework.js",
+    codeUrl: "Build/Build_WebGL.wasm",
+  });
+
+  function TestA() {
+    sendMessage("GameManager", "BtnClick");
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Button variant="contained" onClick={TestA}>
+        Contained
+      </Button>
+      <Unity
+        unityProvider={unityProvider}
+        style={{ width: 800, height: 600 }}
+      />
     </div>
   );
 }
