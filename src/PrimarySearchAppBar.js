@@ -119,6 +119,7 @@ export default function PersistentDrawerLeft(porps) {
   const [score, setScore] = useState(0);
 
   const gameManagerBtnClick = porps.gameManagerBtnClick;
+  const cameraBtnClick = porps.cameraBtnClick;
   const addEventListener = porps.addEventListener;
   const removeEventListener = porps.removeEventListener;
 
@@ -168,7 +169,7 @@ export default function PersistentDrawerLeft(porps) {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-          <MenuItem>
+          <MenuItem onClick={cameraBtnClick}>
             <IconButton
               size="large"
               aria-label="show 4 new mails"

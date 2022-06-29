@@ -15,15 +15,21 @@ function App() {
     sendMessage("GameManager", "BtnClick");
   }
 
+  function cameraBtnClick() {
+    sendMessage("GameManager", "CameraMove");
+  }
+
   return (
     <div>
       <PrimarySearchAppBar
         gameManagerBtnClick={gameManagerBtnClick}
+        cameraBtnClick={cameraBtnClick}
         addEventListener={addEventListener}
         removeEventListener={removeEventListener}
       />
       <Unity
         unityProvider={unityProvider}
+        // style={{ height: 1080, width: 1920 }}
         style={{
           height: "90%",
           width: "100%",
