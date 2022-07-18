@@ -1,6 +1,8 @@
 //import * as React from "react";
 import React, { useState, useEffect, useCallback } from "react";
 import { styled, useTheme, alpha } from "@mui/material/styles";
+import AlertDialog from "./AlertDialog";
+import ContinuousSlider from "./ContinuousSlider";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -193,6 +195,12 @@ export default function PersistentDrawerLeft(porps) {
             <Typography variant="button" display="block" gutterBottom>
               {`Score : ${score}`}
             </Typography>
+          </MenuItem>
+          <MenuItem>
+            <AlertDialog />
+          </MenuItem>
+          <MenuItem>
+            <ContinuousSlider />
           </MenuItem>
         </Toolbar>
       </AppBar>
